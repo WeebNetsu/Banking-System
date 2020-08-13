@@ -1,0 +1,15 @@
+Create a bank management system that can do the following:
+- Add new account
+- Depositing money into account
+- Withdrawing
+- Enquary Balance
+- Show all accounts and ballances
+- Delete an account
+- Suspend an account
+- Edit an account
+- Close account
+
+// extra
+username,password,accountType,balance,admin
+
+Checking accounts are better for everyday transactions such as purchases, bill payments and ATM withdrawals. They typically earn less interest — or none. Savings accounts are better for storing money and earning interest, and because of that, you might have a monthly limit on what you can withdraw without paying a fee.

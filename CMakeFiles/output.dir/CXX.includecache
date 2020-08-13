@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/Bank.cpp
+iostream
+-
+fstream
+-
+iomanip
+-
+Bank.h
+/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/Bank.h
+User.h
+/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/User.h
+
+/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/Bank.h
+string
+-
+
+/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/User.cpp
+User.h
+/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/User.h
+
+/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/User.h
+string
+-
+
+/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/main.cpp
+iostream
+-
+Bank.h
+/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/Bank.h
+
