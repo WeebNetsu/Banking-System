@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/Bank.cpp" "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/CMakeFiles/output.dir/Bank.cpp.o"
-  "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/User.cpp" "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/CMakeFiles/output.dir/User.cpp.o"
-  "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/main.cpp" "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/CMakeFiles/output.dir/main.cpp.o"
+  "/home/netsu/Documents/Code/C++/Fun/Banking Application/Bank.cpp" "/home/netsu/Documents/Code/C++/Fun/Banking Application/CMakeFiles/output.dir/Bank.cpp.o"
+  "/home/netsu/Documents/Code/C++/Fun/Banking Application/User.cpp" "/home/netsu/Documents/Code/C++/Fun/Banking Application/CMakeFiles/output.dir/User.cpp.o"
+  "/home/netsu/Documents/Code/C++/Fun/Banking Application/main.cpp" "/home/netsu/Documents/Code/C++/Fun/Banking Application/CMakeFiles/output.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

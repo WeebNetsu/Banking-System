@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application"
+CMAKE_SOURCE_DIR = "/home/netsu/Documents/Code/C++/Fun/Banking Application"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application"
+CMAKE_BINARY_DIR = "/home/netsu/Documents/Code/C++/Fun/Banking Application"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/output.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/output.dir/flags.make
 
 CMakeFiles/output.dir/main.cpp.o: CMakeFiles/output.dir/flags.make
 CMakeFiles/output.dir/main.cpp.o: main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/output.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/output.dir/main.cpp.o -c "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/netsu/Documents/Code/C++/Fun/Banking Application/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/output.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/output.dir/main.cpp.o -c "/home/netsu/Documents/Code/C++/Fun/Banking Application/main.cpp"
 
 CMakeFiles/output.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/output.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/main.cpp" > CMakeFiles/output.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/netsu/Documents/Code/C++/Fun/Banking Application/main.cpp" > CMakeFiles/output.dir/main.cpp.i
 
 CMakeFiles/output.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/output.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/main.cpp" -o CMakeFiles/output.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/netsu/Documents/Code/C++/Fun/Banking Application/main.cpp" -o CMakeFiles/output.dir/main.cpp.s
 
 CMakeFiles/output.dir/main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/output.dir/main.cpp.o.provides.build: CMakeFiles/output.dir/main.cpp.
 
 CMakeFiles/output.dir/Bank.cpp.o: CMakeFiles/output.dir/flags.make
 CMakeFiles/output.dir/Bank.cpp.o: Bank.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/output.dir/Bank.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/output.dir/Bank.cpp.o -c "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/Bank.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/netsu/Documents/Code/C++/Fun/Banking Application/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/output.dir/Bank.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/output.dir/Bank.cpp.o -c "/home/netsu/Documents/Code/C++/Fun/Banking Application/Bank.cpp"
 
 CMakeFiles/output.dir/Bank.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/output.dir/Bank.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/Bank.cpp" > CMakeFiles/output.dir/Bank.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/netsu/Documents/Code/C++/Fun/Banking Application/Bank.cpp" > CMakeFiles/output.dir/Bank.cpp.i
 
 CMakeFiles/output.dir/Bank.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/output.dir/Bank.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/Bank.cpp" -o CMakeFiles/output.dir/Bank.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/netsu/Documents/Code/C++/Fun/Banking Application/Bank.cpp" -o CMakeFiles/output.dir/Bank.cpp.s
 
 CMakeFiles/output.dir/Bank.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/output.dir/Bank.cpp.o.provides.build: CMakeFiles/output.dir/Bank.cpp.
 
 CMakeFiles/output.dir/User.cpp.o: CMakeFiles/output.dir/flags.make
 CMakeFiles/output.dir/User.cpp.o: User.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/output.dir/User.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/output.dir/User.cpp.o -c "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/User.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/netsu/Documents/Code/C++/Fun/Banking Application/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/output.dir/User.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/output.dir/User.cpp.o -c "/home/netsu/Documents/Code/C++/Fun/Banking Application/User.cpp"
 
 CMakeFiles/output.dir/User.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/output.dir/User.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/User.cpp" > CMakeFiles/output.dir/User.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/netsu/Documents/Code/C++/Fun/Banking Application/User.cpp" > CMakeFiles/output.dir/User.cpp.i
 
 CMakeFiles/output.dir/User.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/output.dir/User.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/User.cpp" -o CMakeFiles/output.dir/User.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/netsu/Documents/Code/C++/Fun/Banking Application/User.cpp" -o CMakeFiles/output.dir/User.cpp.s
 
 CMakeFiles/output.dir/User.cpp.o.requires:
 
@@ -143,7 +143,7 @@ output: CMakeFiles/output.dir/Bank.cpp.o
 output: CMakeFiles/output.dir/User.cpp.o
 output: CMakeFiles/output.dir/build.make
 output: CMakeFiles/output.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable output"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/netsu/Documents/Code/C++/Fun/Banking Application/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable output"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/output.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -162,6 +162,6 @@ CMakeFiles/output.dir/clean:
 .PHONY : CMakeFiles/output.dir/clean
 
 CMakeFiles/output.dir/depend:
-	cd "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application" "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application" "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application" "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application" "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/CMakeFiles/output.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/home/netsu/Documents/Code/C++/Fun/Banking Application" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/netsu/Documents/Code/C++/Fun/Banking Application" "/home/netsu/Documents/Code/C++/Fun/Banking Application" "/home/netsu/Documents/Code/C++/Fun/Banking Application" "/home/netsu/Documents/Code/C++/Fun/Banking Application" "/home/netsu/Documents/Code/C++/Fun/Banking Application/CMakeFiles/output.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/output.dir/depend
 

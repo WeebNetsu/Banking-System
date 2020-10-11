@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/Bank.cpp
+/home/netsu/Documents/Code/C++/Fun/Banking Application/Bank.cpp
 iostream
 -
 fstream
@@ -14,25 +14,25 @@ fstream
 iomanip
 -
 Bank.h
-/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/Bank.h
+/home/netsu/Documents/Code/C++/Fun/Banking Application/Bank.h
 User.h
-/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/User.h
+/home/netsu/Documents/Code/C++/Fun/Banking Application/User.h
 
-/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/Bank.h
+/home/netsu/Documents/Code/C++/Fun/Banking Application/Bank.h
 string
 -
 
-/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/User.cpp
+/home/netsu/Documents/Code/C++/Fun/Banking Application/User.cpp
 User.h
-/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/User.h
+/home/netsu/Documents/Code/C++/Fun/Banking Application/User.h
 
-/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/User.h
+/home/netsu/Documents/Code/C++/Fun/Banking Application/User.h
 string
 -
 
-/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/main.cpp
+/home/netsu/Documents/Code/C++/Fun/Banking Application/main.cpp
 iostream
 -
 Bank.h
-/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/Bank.h
+/home/netsu/Documents/Code/C++/Fun/Banking Application/Bank.h
 

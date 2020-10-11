@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application"
+CMAKE_SOURCE_DIR = "/home/netsu/Documents/Code/C++/Fun/Banking Application"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application"
+CMAKE_BINARY_DIR = "/home/netsu/Documents/Code/C++/Fun/Banking Application"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/CMakeFiles" "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/netsu/Documents/Code/C++/Fun/Banking Application/CMakeFiles" "/home/netsu/Documents/Code/C++/Fun/Banking Application/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/CE4CFBFF4CFBDFDF/Users/steph/Documents/Code/C++/Fun/Banking Application/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/netsu/Documents/Code/C++/Fun/Banking Application/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target

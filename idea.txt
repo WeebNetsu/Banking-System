@@ -1,2 +1,1 @@
 allow users to transfer money from one account to another
-users must pay interest to deposit money into their accounts

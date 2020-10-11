@@ -39,13 +39,14 @@ void Bank::displayMenu(){
     std::cout << "1) Deposit" << std::endl;
     std::cout << "2) Withdraw" << std::endl;
     std::cout << "3) Display Account" << std::endl;
+    std::cout << "4) Send Transaction" << std::endl;
 
     //if the user is an admin, display the rest of the menu as well
     if(user->getAdmin() == '1'){
-        std::cout << "4) Display Specific Account" << std::endl;
-        std::cout << "5) Display All Accounts" << std::endl;
-        std::cout << "6) Edit Account" << std::endl;
-        std::cout << "7) Delete Account" << std::endl;
+        std::cout << "5) Display Specific Account" << std::endl;
+        std::cout << "6) Display All Accounts" << std::endl;
+        std::cout << "7) Edit Account" << std::endl;
+        std::cout << "8) Delete Account" << std::endl;
     }
 
     std::cout << "0) Exit" << std::endl;
@@ -70,11 +71,15 @@ void Bank::displayMenu(){
             break;
 
             case 2:
-                withdraw(getInterest());
+                withdraw();
             break;
 
             case 3:
                 displayAccount();
+            break;
+
+            case 4:
+                transferMoney();
             break;
             
             default:
@@ -92,7 +97,7 @@ void Bank::displayMenu(){
             break;
 
             case 2:
-                withdraw(getInterest());
+                withdraw();
             break;
 
             case 3:
@@ -100,18 +105,22 @@ void Bank::displayMenu(){
             break;
 
             case 4:
-                displaySpecificAccount();
+                transferMoney();
             break;
 
             case 5:
-                displayAllAccounts();
+                displaySpecificAccount();
             break;
 
             case 6:
-                editAccount();
+                displayAllAccounts();
             break;
 
             case 7:
+                editAccount();
+            break;
+
+            case 8:
                 deleteAccount();
             break;
             
@@ -120,6 +129,52 @@ void Bank::displayMenu(){
             break;
         }
     }
+}
+
+void Bank::transferMoney(){
+    std::cout << "Who would you like to deposit money to? (username): ";
+    std::string rUsername;
+    std::cin >> rUsername;
+
+    if (compareStrings("0", rUsername)){
+        std::cout << "Opperation canceled" << std::endl;
+        
+        return;
+    }
+    
+    if(checkAccountExists(rUsername)){
+        std::cout << "How much do you want to deposit? (interest: " << getInterest() << "%): ";
+        double cash = optionExists(cash);
+        double totalCost = cash + (cash * getInterest() / 100);
+        if (user->getBalance() < totalCost){
+            std::cout << "You do not have enough money to transfer " << cash << ". (You need a minimum of " << totalCost << " to transfer amount)\nPlease try again (0 to cancel)" << std::endl;
+
+            transferMoney();
+
+            return;
+        }
+
+        std::string theLine = displaySpecificAccount_mute(rUsername);
+        std::string tLine = theLine;
+        tLine.erase(0, tLine.find(",") + 1); // removes username
+        tLine.erase(0, tLine.find(",") + 1); // removes password
+        tLine.erase(0, tLine.find(",") + 1); // removes account type
+        double balance = std::stof(tLine.substr(0, tLine.find(",")));
+        balance += cash;
+        std::cout << "BAL: " << balance << std::endl;
+        updateFileSpecify(theLine, "balance", std::to_string(balance));
+
+        std::cout << "BAL: " << user->getBalance() - totalCost << std::endl;
+        updateFileSpecify(displaySpecificAccount_mute(user->getUsername()), "balance", std::to_string(user->getBalance() - totalCost));
+
+        return;
+    }
+
+    std::cout << "No such user exists... Please try again (0 to cancel)" << std::endl;
+
+    transferMoney();
+
+    return;
 }
 
 void Bank::deleteAccount(){
@@ -187,6 +242,7 @@ void Bank::deleteAccount(){
 
 void Bank::editAccount(){
     std::string line = displaySpecificAccount_return(); 
+    std::string lineBackup = line;
     if (compareStrings("error", line)){ //if the above function returned an error
         return;
     }
@@ -242,8 +298,8 @@ void Bank::editAccount(){
         case 1: //edit username
             std::cout << "New Username: ";
             std::cin >> strChange;
-
-            updateFile(line, strChange, oldPassword, oldAccountType, balance, oldAdminRights, oldUsername);
+            updateFileSpecify(lineBackup, "username", strChange);
+            // updateFile(line, strChange, oldPassword, oldAccountType, balance, oldAdminRights, oldUsername);
         break;
 
         case 2: //edit password
@@ -265,7 +321,9 @@ void Bank::editAccount(){
             }
             
             if (charChange == 'y' || charChange == 'Y'){
+                // std::cout << (oldAccountType == 'C' ? 'S' : 'C') << std::endl;
                 updateFile(line, oldUsername, oldPassword, (oldAccountType == 'C' ? 'S' : 'C'), balance, oldAdminRights);
+                // std::cout << (oldAccountType == 'C' ? 'S' : 'C') << std::endl;
             }
         break;
 
@@ -434,6 +492,52 @@ std::string Bank::displaySpecificAccount_return(){ //displays specific account, 
     return "error"; //reports error (why "error" is an invalid username)
 }
 
+std::string Bank::displaySpecificAccount_mute(std::string username){ 
+    if(checkAccountExists(username)){
+        std::ifstream FileUsers("users.dat");
+        std::string pusername, password, line, result;
+        char accountType, seperator = ',';
+        double balance;
+        char admin;
+
+        while(getline(FileUsers, line)){ 
+            if(line == ""){
+                continue;
+            }
+
+            // username,password,acctype,balance,admin
+            std::size_t split = line.find(seperator); //finds ','
+            pusername = line.substr(0,  split); //copies username
+            line.erase (0, split + 1); //deletes first part of string
+            // password,acctype,balance
+
+            if(!compareStrings(pusername, username)){
+                continue;
+            }
+
+            split = line.find(seperator); 
+            password = line.substr(0,  split); //copies password
+            line.erase (0, split + 1);
+
+            split = line.find(seperator); 
+            accountType = line[0]; //copies account type
+            line.erase (0, split + 1);
+
+            split = line.find(seperator);
+            balance = std::stod(line.substr(0,  split));
+            line.erase (0, split + 1);
+            
+            admin = line[0];
+        }
+
+        result = username + "," + password + "," + accountType + "," + std::to_string(balance) + "," + admin;
+        FileUsers.close();
+        return result;
+    }
+
+    return "error"; //reports error (why "error" is an invalid username)
+}
+
 void Bank::displayAllAccounts(){ //displays all existing accounts
     std::ifstream FileUsers("users.dat");
     std::string line;
@@ -506,7 +610,8 @@ void Bank::displayAccount(){ //display current user account
     std::cout << "\n-------------------------------END-------------------------------\n\n" << std::endl;
 }
 
-void Bank::withdraw(double interest){
+void Bank::withdraw(){
+    interest = getInterest();
     std::cout << "You currently have " << user->getBalance() << " in your account.\nHow much would you like to withdraw? Amount: ";
     double amount = optionExists(amount);
     interest /= 100; //if interest was 7.14, then it is now 0.0714 (7.14%)
@@ -554,6 +659,150 @@ void Bank::deposit(){ //put money into user account
     updateFile(theLine, user->getUsername(), user->getPassword(), user->getAccountType(), user->getBalance(), user->getAdmin());
 }
 
+void Bank::updateFileSpecify(std::string theLine, std::string updateItem, std::string newValue){
+    //get details
+    // std::cout << "OG PASS: " << theLine << std::endl;
+    std::string oUsername = theLine.substr(0, theLine.find(","));
+    theLine.erase(0, theLine.find(",") + 1);
+    std::string oPassword = theLine.substr(0, theLine.find(","));
+    theLine.erase(0, theLine.find(",") + 1);
+    std::string oAccountType = theLine.substr(0, theLine.find(","));
+    theLine.erase(0, theLine.find(",") + 1);
+    std::string oBalance = theLine.substr(0, theLine.find(","));
+    theLine.erase(0, theLine.find(",") + 1);
+    std::string oAdmin = theLine;
+
+    std::ifstream FileUser("users.dat"); //gets input from the file
+    std::ofstream tempFile("temp.tmp"); //create a temparary file
+
+    if (compareStrings("username", updateItem)){
+        std::cout << "Updating username" << std::endl;
+        std::string line;
+
+        while(getline(FileUser, line)){ //reads line from file and puts it in variable
+            std::size_t split = line.find(','); //finds ','
+            std::string thisusername = line.substr(0,  split); //copies username
+            
+            if(!compareStrings(thisusername, oUsername)){ //if the usernames match, dont copy over to temp file
+                tempFile << "\n" << line;
+            }
+        }
+
+        tempFile.close();
+        FileUser.close();
+
+        remove("users.dat"); //delete original file
+        rename("temp.tmp", "users.dat"); //rename temp file to name of original file
+
+        std::ofstream FileUser2; //create a file object
+        FileUser2.open("users.dat", std::ios::app | std::ios::out);
+        FileUser2 << std::fixed;
+        FileUser2 << std::setprecision(2);
+        FileUser2 << "\n" << newValue << "," << oPassword << "," << oAccountType << "," << oBalance << "," << oAdmin;
+        FileUser2.close();
+    }else if (compareStrings("password", updateItem)){
+        std::string line;
+
+        while(getline(FileUser, line)){ //reads line from file and puts it in variable
+            std::size_t split = line.find(','); //finds ','
+            std::string thisusername = line.substr(0,  split); //copies username
+            
+            if(!compareStrings(thisusername, oUsername)){ //if the usernames match, dont copy over to temp file
+                tempFile << "\n" << line;
+            }
+        }
+
+        tempFile.close();
+        FileUser.close();
+
+        remove("users.dat"); //delete original file
+        rename("temp.tmp", "users.dat"); //rename temp file to name of original file
+
+        std::ofstream FileUser2; //create a file object
+        FileUser2.open("users.dat", std::ios::app | std::ios::out);
+        FileUser2 << std::fixed;
+        FileUser2 << std::setprecision(2);
+        FileUser2 << "\n" << oUsername << "," << newValue << "," << oAccountType << "," << oBalance << "," << oAdmin;
+        FileUser2.close();
+    }else if (compareStrings("account type", updateItem)){
+        std::string line;
+
+        while(getline(FileUser, line)){ //reads line from file and puts it in variable
+            std::size_t split = line.find(','); //finds ','
+            std::string thisusername = line.substr(0,  split); //copies username
+            
+            if(!compareStrings(thisusername, oUsername)){ //if the usernames match, dont copy over to temp file
+                tempFile << "\n" << line;
+            }
+        }
+
+        tempFile.close();
+        FileUser.close();
+
+        remove("users.dat"); //delete original file
+        rename("temp.tmp", "users.dat"); //rename temp file to name of original file
+
+        std::ofstream FileUser2; //create a file object
+        FileUser2.open("users.dat", std::ios::app | std::ios::out);
+        FileUser2 << std::fixed;
+        FileUser2 << std::setprecision(2);
+        FileUser2 << "\n" << oUsername << "," << oPassword << "," << newValue << "," << oBalance << "," << oAdmin;
+        FileUser2.close();
+    }else if (compareStrings("balance", updateItem)){
+        std::string line;
+
+        while(getline(FileUser, line)){ //reads line from file and puts it in variable
+            std::size_t split = line.find(','); //finds ','
+            std::string thisusername = line.substr(0,  split); //copies username
+            
+            if(!compareStrings(thisusername, oUsername)){ //if the usernames match, dont copy over to temp file
+                tempFile << "\n" << line;
+            }
+        }
+
+        tempFile.close();
+        FileUser.close();
+
+        remove("users.dat"); //delete original file
+        rename("temp.tmp", "users.dat"); //rename temp file to name of original file
+
+        std::ofstream FileUser2; //create a file object
+        FileUser2.open("users.dat", std::ios::app | std::ios::out);
+        FileUser2 << std::fixed;
+        FileUser2 << std::setprecision(2);
+        FileUser2 << "\n" << oUsername << "," << oPassword << "," << oAccountType << "," << newValue << "," << oAdmin;
+        FileUser2.close();
+    }else if (compareStrings("admin", updateItem)){
+        std::string line;
+
+        while(getline(FileUser, line)){ //reads line from file and puts it in variable
+            std::size_t split = line.find(','); //finds ','
+            std::string thisusername = line.substr(0,  split); //copies username
+            
+            if(!compareStrings(thisusername, oUsername)){ //if the usernames match, dont copy over to temp file
+                tempFile << "\n" << line;
+            }
+        }
+
+        tempFile.close();
+        FileUser.close();
+
+        remove("users.dat"); //delete original file
+        rename("temp.tmp", "users.dat"); //rename temp file to name of original file
+
+        std::ofstream FileUser2; //create a file object
+        FileUser2.open("users.dat", std::ios::app | std::ios::out);
+        FileUser2 << std::fixed;
+        FileUser2 << std::setprecision(2);
+        FileUser2 << "\n" << oUsername << "," << oPassword << "," << oAccountType << "," << oBalance << "," << newValue;
+        FileUser2.close();
+    }else{
+        std::cout << "Could not execute, error occured!" << std::endl;
+        tempFile.close();
+        FileUser.close();
+    }
+}
+
 void Bank::updateFile(std::string theLine, std::string username, std::string password, char accountType, double balance, char admin){
     std::ifstream FileUser("users.dat"); //gets input from the file
     std::ofstream tempFile("temp.tmp"); //create a temparary file
@@ -582,7 +831,7 @@ void Bank::updateFile(std::string theLine, std::string username, std::string pas
     FileUser2.close();
 }
 
-void Bank::updateFile(std::string theLine, std::string username, std::string password, char accountType, double balance, char admin, std::string oldUsername){
+/*void Bank::updateFile(std::string theLine, std::string username, std::string password, char accountType, double balance, char admin, std::string oldUsername){
     std::ifstream FileUser("users.dat"); //gets input from the file
     std::ofstream tempFile("temp.tmp"); //create a temparary file
     std::string line;
@@ -608,7 +857,7 @@ void Bank::updateFile(std::string theLine, std::string username, std::string pas
     FileUser2 << std::setprecision(2);
     FileUser2 << "\n" << username << "," << password << "," << accountType << "," << balance << "," << admin;
     FileUser2.close();
-}
+}*/
 
 bool Bank::login(){ //allows user to log in
     std::cin.clear();

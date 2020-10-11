@@ -1,1 +1,1 @@
-/usr/bin/c++   -std=c++14 -g  -rdynamic CMakeFiles/output.dir/main.cpp.o CMakeFiles/output.dir/Bank.cpp.o CMakeFiles/output.dir/User.cpp.o  -o output 
+/usr/bin/c++    -rdynamic CMakeFiles/output.dir/main.cpp.o CMakeFiles/output.dir/Bank.cpp.o CMakeFiles/output.dir/User.cpp.o  -o output 
