@@ -8,6 +8,9 @@ You can either log in, or create a new account. Accounts can be found in "users.
 Layout is as such:
 username,password,account_type,balance,admin
 Admins can do more than normal users, of course, so sign in as admin to have extra perks.
+
 username: mark
-password: passw0rd
+
+password: password
+
 (the above is an admin)

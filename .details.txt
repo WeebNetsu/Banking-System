@@ -1,0 +1,14 @@
+Programmer: Stephen van der Westhuizen
+Github: https://github.com/WeebNetsu
+Language: C++
+Project Idea Source: http://www.cppforschool.com/project/banking-system-project.html
+Build Machine: Linux Mint 19.3
+Multi-Platform Support: Yes
+Built With: make
+Execution File: if Linux: ./run.sh
+Main Editor: Visual Studio Code
+Total Time Worked On Project: 15 hours
+Comment: This is a show of my skills after 1.5 months of learning C++.
+Extra: 
+YouTube Channel 1: https://www.YouTube.com/stevesteacher
+YouTube Channel 2: https://www.youtube.com/channel/UCZkCdex94Hp-3Aa-42kPhHg
