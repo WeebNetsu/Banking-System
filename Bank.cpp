@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream> //to work with files
 #include <iomanip> //to make sure double stay 0.00 and not 0.0
+// #include <boost/algorithm/string.hpp> // legit just to use tolowercase
 
 #include "Bank.h"
 #include "User.h"
@@ -152,6 +153,17 @@ void Bank::transferMoney(){
             transferMoney();
 
             return;
+        }else{
+            std::cout << "You are about to extract a total of " << totalCost << " from you account, do you want to continue?\ny/n: ";
+            std::string ans;
+            std::cin >> ans;
+            if (compareStrings("y", ans) || compareStrings("Y", ans) || compareStrings("yes", ans)){
+                std::cout << "Transfer started" << std::endl;
+            }else{
+                std::cout << "Transfer canceled!" << std::endl;
+                return;
+            }
+            
         }
 
         std::string theLine = displaySpecificAccount_mute(rUsername);
@@ -161,11 +173,11 @@ void Bank::transferMoney(){
         tLine.erase(0, tLine.find(",") + 1); // removes account type
         double balance = std::stof(tLine.substr(0, tLine.find(",")));
         balance += cash;
-        std::cout << "BAL: " << balance << std::endl;
         updateFileSpecify(theLine, "balance", std::to_string(balance));
 
-        std::cout << "BAL: " << user->getBalance() - totalCost << std::endl;
         updateFileSpecify(displaySpecificAccount_mute(user->getUsername()), "balance", std::to_string(user->getBalance() - totalCost));
+
+        std::cout << "Money transfered succesfully! Current balance: " << user->getBalance() - totalCost << std::endl;
 
         return;
     }
